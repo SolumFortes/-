@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoRekrut
 // @namespace    http://tampermonkey.net/
-// @version      1.8
+// @version      1.9
 // @description  Automatically recruits 1 spearman every 6 minutes in the game Tribal Wars.
 // @author       Wwww
 // @match        https://*/game.php?village=*screen=train*
@@ -68,8 +68,12 @@
             console.log('[LOG] Klikám na tlačítko Rekrutovat...');
             recruitButton.click();
         } else {
-            console.warn('[WARNING] Tlačítko Rekrutovat nebylo nalezeno. Přeskakuji rekrut.');
-            return; // Přeskočí rekrut, pokud není tlačítko
+            console.warn('[WARNING] Tlačítko Rekrutovat nebylo nalezeno. Čekám 60 sekund a restartuji skript.');
+            setTimeout(() => {
+                console.log('[LOG] Restartuji skript...');
+                window.location.reload();
+            }, 60000);  // 60 sekund čekání
+            return; // Zastaví skript, dokud se nenajde tlačítko
         }
 
         // Náhodný interval mezi cykly
