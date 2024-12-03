@@ -77,7 +77,7 @@
         }
 
         // Náhodný interval mezi cykly
-        const delay = getRandomInterval(330000, 360000); // 5:30 až 6 minut
+        const delay = getRandomInterval(290000, 320000); // 5:30 až 6 minut
         console.log(`[LOG] Další akce proběhne za ${Math.round(delay / 1000)} sekund.`);
         setTimeout(() => {
             console.log('[LOG] Obnovuji stránku...');
